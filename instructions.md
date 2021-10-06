@@ -5,9 +5,10 @@
     ```
     git clone https://github.com/sabbirshawon/report_form.git 
     ```
+2.  Go `cd report_form` project folder.
 
-2. Create a database named `db_task` in phpmyadmin then Import the file from `db/db_task.sql` folder into database.
+3. Create a database named `db_task` in phpmyadmin then Import the file from `db/db_task.sql` folder into database.
 
-3. Run the file in browser: `localhost/report_form`
+4. Run the file in browser: `localhost/report_form`
 
 ## Thanks!
