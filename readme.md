@@ -1,7 +1,7 @@
 # Project Run In Local Machine Instructions are given below:
 
 1. First clone this repository using `cmd/ terminal` into your projects directory `xampp/htdocs`: 
-2. 
+ 
     ```
     git clone https://github.com/sabbirshawon/report_form.git clipboardy-chrome-extension
     ```
