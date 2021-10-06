@@ -9,7 +9,13 @@
 .xp-submit-btn{
     width: 100%;
 }
-
-.add-new-item{
+  
+.add-new-item, .remove-item{
     cursor: pointer;
+    height: 58px !important;
 }
+
+.form-floating-group input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+  }

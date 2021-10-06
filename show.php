@@ -27,6 +27,13 @@
                   </div>';
                     } 
                 ?>
+
+                <?php 
+                    $reports = $formObj->showData(); 
+
+                    if (is_array($reports) || is_object($reports))
+                    {
+                ?>
                 
                 <div class="table-responsive">
                     <table class="table table-striped table-hover" id="reportTable">
@@ -48,15 +55,14 @@
                         </thead>
                         <tbody>
                             <?php 
-                            $reports = $formObj->showData(); 
-                            foreach ($reports as $res) {
+                                foreach ($reports as $res) {
                             ?>
                             <tr>
                                 <td><?php echo $res['id'] ?></td>
                                 <td><?php echo $res['amount'] ?></td>
                                 <td><?php echo $res['buyer'] ?></td>
                                 <td><?php echo $res['receipt_id'] ?></td>
-                                <td><?php echo $res['items'] ?></td>
+                                <td><?php echo $res['item_names'] ?></td>
                                 <td><?php echo $res['buyer_email'] ?></td>
                                 <td><?php echo $res['note'] ?></td>
                                 <td><?php echo $res['city'] ?></td>
@@ -65,10 +71,16 @@
                                 <td><?php echo $res['buyer_ip'] ?></td>
                                 <td><?php echo $res['entry_by'] ?></td>
                             </tr>
-                        <?php } ?>
+                        <?php
+                            }
+                        ?>
                         </tbody>
                     </table>
                 </div>
+
+                <?php 
+                    }
+                ?>
             </div>
         <div class="col"></div>
     </div>

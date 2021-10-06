@@ -27,7 +27,7 @@
             $amount = $this->con->real_escape_string($_POST['amount']);
             $buyer = $this->con->real_escape_string($_POST['buyer']);
             $receipt_id = $this->con->real_escape_string($_POST['receipt_id']);
-            $items = $this->con->real_escape_string($_POST['items']);
+            $items = $_POST['items'];
             $buyer_email = $this->con->real_escape_string($_POST['buyer_email']);
             $buyer_ip = $this->con->real_escape_string($_SERVER['REMOTE_ADDR']);
             $note = $this->con->real_escape_string($_POST['note']);
@@ -46,25 +46,35 @@
 
             $query="INSERT INTO 
                 tbl_task_table(
-                    amount, buyer, receipt_id, items, buyer_email, buyer_ip, note,
+                    amount, buyer, receipt_id, buyer_email, buyer_ip, note,
                     city, phone, hash_key, entry_at, entry_by
                 ) 
-                VALUES('$amount', '$buyer', '$receipt_id',' $items', '$buyer_email', '$buyer_ip', '$note',
+                VALUES('$amount', '$buyer', '$receipt_id', '$buyer_email', '$buyer_ip', '$note',
                     '$city', '$phone', '$hash_key', '$entry_at', '$entry_by')";
             $sql = $this->con->query($query);
+            //print_r($_POST);
+            $last_id =  $this->con-> insert_id;
 
-            //print_r($query);
+            foreach($items AS $item){
+                $item = $this->con->real_escape_string($item);
+                $query2 = "INSERT INTO `tbl_item_info`(`item_name`,`task_id`) VALUES('".$item."', '".$last_id."')";
+                $sql2 = $this->con->query($query2);
+            }
 
             if ($sql==true) {
                 header("Location:show.php?success=insert");
             }else{
-                echo "Registration failed try again!";
+                echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                Report Data Insert Failed.
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>';
             }
         }
  
         public function showData()
         {
-            $query = "SELECT * FROM tbl_task_table";
+            $query = "SELECT *, GROUP_CONCAT(item_name SEPARATOR ', ') as item_names FROM tbl_task_table, tbl_item_info 
+                WHERE tbl_task_table.id = tbl_item_info.task_id GROUP BY entry_by";
             $result = $this->con->query($query);
                 if ($result->num_rows > 0) {
                     $data = array();
@@ -76,7 +86,10 @@
                 }
                 else
                 {
-                    echo "No data found.";
+                    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    No Data Found. Please <a href="index.php">insert First</a>. Thanks!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
                 }
         }
  
