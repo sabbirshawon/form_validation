@@ -69,7 +69,7 @@
                             <label for="entry_by_id">Entry By</label>
                         </div>
                         <div class="col-12">
-                            <input type="submit" name="submit" value="Submit" class="btn btn-primary xp-submit-btn"/>
+                            <input type="submit" name="submit" value="Submit" class="btn btn-primary submit-btn"/>
                         </div>
                     </form>
                 </div>
