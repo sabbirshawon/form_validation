@@ -12,7 +12,7 @@
                 </div>
 
                 <div class="form-menu d-flex justify-content-center">
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group btn-menu" role="group" aria-label="Basic example">
                         <a href="index.php" class="btn btn-primary">Home</a>
                         <a href="show.php" class="btn btn-primary">Show Data</a>
                     </div>

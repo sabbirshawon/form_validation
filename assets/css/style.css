@@ -2,8 +2,8 @@
     text-align: center;
 }
 
-.form-div{
-    margin-top: 5%;
+.form-div {
+    margin: 5% 0;
 }
 
 .xp-submit-btn{
@@ -19,3 +19,11 @@
     border-bottom-right-radius: 0;
     border-top-right-radius: 0;
   }
+
+.btn-menu a:first-child {
+    margin-right: 10px;
+}
+
+.btn-menu a {
+    border-radius: 10px !important;
+}

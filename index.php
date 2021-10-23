@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $title= "Report Form";
+    $title= "Form Validation";
 
     include 'header.php';
 
@@ -14,11 +14,11 @@
             <div class="col"></div>
             <div class="col-6">
                 <div class="form-title">
-                    <h1>Report Form</h1>
+                    <h1>Form Validation</h1>
                 </div>
 
                 <div class="form-menu d-flex justify-content-center">
-                    <div class="btn-group" role="group" aria-label="Basic example">
+                    <div class="btn-group btn-menu" role="group" aria-label="Basic example">
                         <a href="index.php" class="btn btn-primary">Home</a>
                         <a href="show.php" class="btn btn-primary">Show Data</a>
                     </div>
